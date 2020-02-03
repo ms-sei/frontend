@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
-
+import TaskIndex from './tasks/TaskIndex'
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
@@ -9,9 +9,13 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
+import TaskCreate from './tasks/TaskCreate'
+import TaskShow from './tasks/TaskShow'
+import TaskEdit from './tasks/TaskEdit'
 
 class App extends Component {
-  constructor () {
+  constructor () { 
+
     super()
 
     this.state = {
@@ -33,12 +37,14 @@ class App extends Component {
 
     return (
       <React.Fragment>
+
         <Header user={user} />
-        {alerts.map((alert, index) => (
+
+        { alerts.map((alert, index) => (
           <AlertDismissible key={index} variant={alert.type} message={alert.message} />
         ))}
         <main className="container">
-          <Route path='/sign-up' render={() => (
+          <Route path='/sign-up' render={ () => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
           <Route path='/sign-in' render={() => (
@@ -50,7 +56,22 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
-  
+          
+          <AuthenticatedRoute user={user} exact path='/tasks' render={() => (
+            <TaskIndex user={user} /> //show users` Tasks...
+          )} />
+
+          <AuthenticatedRoute user={user} exact path='/tasks/:id' render={(props) => (
+            <TaskShow user={user} taskId={props.match.params.id} /> //Showusers` Tasks...
+          )} />
+
+          <AuthenticatedRoute user={user} exact path='/tasks/create' render={() => (
+            <TaskCreate user={user} /> //create users` Tasks...
+          )} />
+          
+           <AuthenticatedRoute user={user} exact path='/tasks' render={() => (
+            <TaskEdit user={user} /> //edit users` Tasks...
+          )} />
 
         </main>
       </React.Fragment>
