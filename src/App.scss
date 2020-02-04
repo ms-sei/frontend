@@ -35,6 +35,8 @@ $charcoal: #ccc;
   justify-content: center;
   margin: 15% auto 0;
   max-width: 600px;
+  color: whitesmoke;
+}
 
   h3,
   input {
@@ -45,4 +47,26 @@ $charcoal: #ccc;
     align-self: flex-end;
     max-width: 200px;
   }
+
+.back-ground{
+  background-image: url('./BackGround.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.height{
+  height: 100%;
+  width: 100%;
+  margin: 100px;
+
+}
+.container {
+  width: 100%;
+  padding: 222px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+h1, p,label{
+  color: whitesmoke;
 }

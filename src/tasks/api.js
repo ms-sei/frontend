@@ -24,19 +24,20 @@ export const show = (user, taskId) => {
 export const create = (user,newTask) => {
     return Axios({
         method:'POST',
-        url:apiUrl + '/tasks',
+        url:apiUrl + `/tasks`,
         headers:{
             "Authorization":`Bearer ${user.token}`
         },
         data:{
             title: newTask.title,
-            description: newTask.description
+            description: newTask.description,
+            owner: newTask.owner
         }
     })
 }
 export const update = (user,updateTask,taskId) => {
     return Axios({
-        method:'PUT',
+        method:'PATCH',
         url:apiUrl + `/tasks/${taskId}`,
         headers:{
             "Authorization":`Bearer ${user.token}`
@@ -50,6 +51,16 @@ export const destroy = (user,taskId) => {
     return Axios({
         method:"DELETE",
         url:apiUrl + `/tasks/${taskId}`,
+        headers:{
+            "Authorization":`Bearer ${user.token}`
+        }
+    })
+}
+
+export const indexUser = (user) => {
+    return  Axios({
+        method:'GET',
+        url: apiUrl + '/users',
         headers:{
             "Authorization":`Bearer ${user.token}`
         }

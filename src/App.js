@@ -13,12 +13,13 @@ import TaskCreate from './tasks/TaskCreate'
 import TaskShow from './tasks/TaskShow'
 import TaskEdit from './tasks/TaskEdit'
 
+
 class App extends Component {
   constructor () { 
 
     super()
 
-    this.state = {
+    this.state = { 
       user: null,
       alerts: []
     }
@@ -43,7 +44,7 @@ class App extends Component {
         { alerts.map((alert, index) => (
           <AlertDismissible key={index} variant={alert.type} message={alert.message} />
         ))}
-        <main className="container">
+        <main className="container back-ground height">
           <Route path='/sign-up' render={ () => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
@@ -65,11 +66,11 @@ class App extends Component {
             <TaskShow user={user} taskId={props.match.params.id} /> //Showusers` Tasks...
           )} />
 
-          <AuthenticatedRoute user={user} exact path='/tasks/create' render={() => (
+          <AuthenticatedRoute user={user} exact path='/tasks/create/task' render={() => (
             <TaskCreate user={user} /> //create users` Tasks...
           )} />
           
-           <AuthenticatedRoute user={user} exact path='/tasks' render={() => (
+           <AuthenticatedRoute user={user} exact path='/tasks/:id/edit' render={() => (
             <TaskEdit user={user} /> //edit users` Tasks...
           )} />
 
