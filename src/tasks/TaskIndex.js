@@ -1,7 +1,6 @@
 import React from 'react';
 import {index,destroy} from './api';
 import {Link} from 'react-router-dom';
-
 class TaskIndex extends React.Component {
     state = { 
         tasks: []
@@ -17,11 +16,9 @@ class TaskIndex extends React.Component {
              })
          })
          .catch( error => console.log(error) )
-
         }
         destroy = (taskId) => {
             const user = this.props.user
-
             destroy(user,taskId)
             .then( () => alert('Deleted!!'))
             .then( () => {
@@ -32,15 +29,13 @@ class TaskIndex extends React.Component {
                  }) 
             })
             .catch((error) => console.log(error) )
-
         }
-
     render() { 
         // console.log(th)
         return (
             <div>
                {this.state.tasks.map((task,index) => (
-                        <div key={index}>
+                        <div key={index} >
                         <h1>{task.title}</h1>
                         <button onClick={ () => this.destroy(task._id) } > Delete </button>
                         <Link to = {`/tasks/${task._id}/edit`}> Edit </Link> 
@@ -49,6 +44,7 @@ class TaskIndex extends React.Component {
                     ))}
             </div>
         )
+        
         
     }
 }

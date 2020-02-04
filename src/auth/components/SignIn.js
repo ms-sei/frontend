@@ -36,7 +36,7 @@ class SignIn extends Component {
   }
 
   render () {
-    const { email, password } = this.state
+    const { email, password } = this.state 
 
     return (
       <form className='auth-form' onSubmit={this.onSignIn}>

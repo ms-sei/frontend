@@ -4,19 +4,27 @@ class TaskShow extends Component{
     state = {
         task:{
             title: "",
-            description: ""
+            description: "",
+            owner:""
+        },
+        user:{
+            from:"",
+            owner:""
         }
     }
+
     componentDidMount(){
         const user = this.props.user;
         const taskId = this.props.taskId;
         show(user,taskId)
         .then((res) => {
-            const {title, description} = res.data
-            const task = {title, description}
-            this.setState({
-                task
-            })
+            console.log(res)
+            const {title, description,owner} = res.data.task
+            const task = {title, description,owner}
+            const copyState = {...this.state}
+            copyState.task= task
+            copyState.user = res.data.user
+            this.setState(copyState)
         })
         .catch((error) => console.log(error))
     }
@@ -24,8 +32,10 @@ class TaskShow extends Component{
         // console.log(this.props.taskId)
         return(
             <div>
-                <h1>{this.state.task.title}</h1>
-                <p>{this.state.task.description}</p>
+                <p>Assigned from: {this.state.user.from}</p>
+                <h1>Title:{this.state.task.title}</h1>
+                <p>Description: {this.state.task.description}</p>
+                <p>Assigned to: {this.state.user.owner}</p>
             </div>
         )
     }
