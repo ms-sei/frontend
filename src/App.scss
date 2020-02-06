@@ -33,8 +33,9 @@ $charcoal: #ccc;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 15% auto 0;
+  margin: -30% auto 0;
   max-width: 600px;
+  border: 2px dotted whitesmoke;
   color: whitesmoke;
 }
 
@@ -46,12 +47,17 @@ $charcoal: #ccc;
   button {
     align-self: flex-end;
     max-width: 200px;
+    font-family: 'Times New Roman', Times, serif;
   }
 
 .back-ground{
-  background-image: url('./BackGround.jpg');
+  background-image: url('./low-angle-photo-of-four-high-rise-curtain-wall-buildings-830891.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
+  //background-color: rgb(200,200,80);
+ background-size:cover;
+
+  
+
 }
 
 .height{
@@ -63,10 +69,30 @@ $charcoal: #ccc;
 .container {
   width: 100%;
   padding: 222px;
-  padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 0%;
 }
 h1, p,label{
   color: whitesmoke;
+  font-family: 'Times New Roman', Times, serif;
+}
+#root > main > form{
+  margin-top: -150px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
+  transition: 0.3s;
+  width: auto;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-container {
+  padding: 2px 16px;
+  
 }

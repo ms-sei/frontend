@@ -12,7 +12,7 @@ import AlertDismissible from './auth/components/AlertDismissible'
 import TaskCreate from './tasks/TaskCreate'
 import TaskShow from './tasks/TaskShow'
 import TaskEdit from './tasks/TaskEdit'
-
+import Footer from './footer/Footer'
 
 class App extends Component {
   constructor () { 
@@ -75,6 +75,8 @@ class App extends Component {
           )} />
 
         </main>
+
+        <Footer/>
       </React.Fragment>
     )
   }

@@ -33,9 +33,9 @@ class TaskIndex extends React.Component {
     render() { 
         // console.log(th)
         return (
-            <div>
+            <div className='card'>
                {this.state.tasks.map((task,index) => (
-                        <div key={index} >
+                        <div className="card-container" key={index} >
                         <h1>{task.title}</h1>
                         <button onClick={ () => this.destroy(task._id) } > Delete </button>
                         <Link to = {`/tasks/${task._id}/edit`}> Edit </Link> 

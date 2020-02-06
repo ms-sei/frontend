@@ -31,11 +31,13 @@ class TaskShow extends Component{
     render(){
         // console.log(this.props.taskId)
         return(
-            <div>
+            <div className="card">
                 <p>Assigned from: {this.state.user.from}</p>
                 <h1>Title:{this.state.task.title}</h1>
+                <div className='card-container'>
                 <p>Description: {this.state.task.description}</p>
                 <p>Assigned to: {this.state.user.owner}</p>
+                </div>
             </div>
         )
     }
